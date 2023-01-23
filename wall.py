@@ -7,4 +7,10 @@ print(len(walls))
 
 print(f'Liczba ścian w modelu: {len(walls)}')
 
-#dodawanie
+#property set
+
+walls = m.by_type("IfcWall")
+wall = walls[1]
+pset_for_wall = ifcopenshell.util.element.get_psets(wall)
+print(pset_for_wall)
+
