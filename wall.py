@@ -25,3 +25,16 @@ for w in walls:
             ext_walls.append(w)
             
 print(f'Liczba ścian zewnętrznych: {len(ext_walls)}')
+
+#objetosc
+
+totalvolume = 0
+
+for w in ext_walls:
+    psets = ifcopenshell.util.element.get_psets(w)
+    for psetname, pset_dict in psets.items():
+        for name, value in pset_dict.items():
+            # print (f"{name}: {value}")
+            if name == "NetVolume":
+                totalvolume += float(value)
+print(f'Objętość: {totalvolume:.2f}')
